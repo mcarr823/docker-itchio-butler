@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  butler:
+    # x86_64 version
+    image: ghcr.io/mcarr823/docker-itchio-butler:amd64
+    # aarch64/ARM64 version
+    #image: ghcr.io/mcarr823/docker-itchio-butler:arm64
+
+    restart: no
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./config:/home/butler/.config/itch/
+      - ./in:/home/butler/in/
+      # Optional cache directory
+      #- ./cache:/home/butler/.cache/itch/
